@@ -10,8 +10,24 @@ import java.util.Set;
 @Entity
 @Table(name = "profile")
 @Data
-@EqualsAndHashCode(callSuper = false, exclude = {"articles", "comments"})
-public class Profile extends User {
+public class Profile {
+
+    @OneToOne(mappedBy = "profile")
+    private User user;
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
+    private String username;
+
+    @Column
+    private String bio;
+
+    @Column
+    private String image;
 
     @Column
     private boolean following;

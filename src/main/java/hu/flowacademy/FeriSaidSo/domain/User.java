@@ -1,5 +1,6 @@
 package hu.flowacademy.FeriSaidSo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,5 +30,10 @@ public class User {
 
     @Column
     private String image;
+
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
 
 }

@@ -43,6 +43,7 @@ public class InitDataLoader implements CommandLineRunner {
         profile.setUsername(user.getUsername());
         profile.setBio(user.getBio());
         profile.setImage(user.getImage());
+        user.setProfile(profile);
 
         Article article = new Article();
         article.setSlug("how-to-train-your-dragon");
