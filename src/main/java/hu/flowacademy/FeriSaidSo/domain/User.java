@@ -11,6 +11,10 @@ import javax.persistence.*;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private long id;
+
     @Column(unique = true)
     private String username;
 
